@@ -1,12 +1,12 @@
 package screenplay.abilities;
 
-import cucumber.api.DataTable;
+import java.util.Map;
+
+import io.cucumber.datatable.DataTable;
 import net.serenitybdd.screenplay.Ability;
 import net.serenitybdd.screenplay.Actor;
 import screenplay.exceptions.CannotAuthenticateException;
 import utils.ConvertCucumberDataTable;
-
-import java.util.Map;
 
 public class Authenticate implements Ability {
 

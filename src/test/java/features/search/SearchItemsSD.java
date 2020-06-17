@@ -1,17 +1,5 @@
 package features.search;
 
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
-import screenplay.questions.SearchResults;
-import screenplay.tasks.NavigateMenu;
-import screenplay.tasks.SearchAnItem;
-import screenplay.tasks.Start;
-
-import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -19,6 +7,20 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static screenplay.questions.ElementAvailability.Available;
+
+import java.util.List;
+
+import org.junit.Before;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+import screenplay.questions.SearchResults;
+import screenplay.tasks.NavigateMenu;
+import screenplay.tasks.SearchAnItem;
+import screenplay.tasks.Start;
 
 public class SearchItemsSD {
 

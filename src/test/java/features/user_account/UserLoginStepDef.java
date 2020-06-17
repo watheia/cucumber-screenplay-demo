@@ -1,22 +1,23 @@
 package features.user_account;
 
-import cucumber.api.DataTable;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static net.serenitybdd.screenplay.matchers.ConsequenceMatchers.displays;
+import static org.hamcrest.Matchers.equalTo;
+
+import org.junit.Before;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import screenplay.abilities.Authenticate;
 import screenplay.questions.UserAccount;
 import screenplay.tasks.LogIn;
 import screenplay.tasks.Start;
-
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.ConsequenceMatchers.displays;
-import static org.hamcrest.Matchers.equalTo;
 
 public class UserLoginStepDef {
 

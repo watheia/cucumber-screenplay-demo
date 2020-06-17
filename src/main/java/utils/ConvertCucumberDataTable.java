@@ -1,9 +1,13 @@
 package utils;
 
-import cucumber.api.DataTable;
-import utils.exceptions.TableConverterException;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.util.*;
+import io.cucumber.datatable.DataTable;
+import utils.exceptions.TableConverterException;
 /***
  * This is a util class that converts Cucumber Data Table into a flat linked hash map.
  *
@@ -42,7 +46,7 @@ public class ConvertCucumberDataTable {
     }
 
     private ConvertCucumberDataTable(DataTable dataTable) {
-        this.rows = dataTable.raw();
+        this.rows = dataTable.asLists();
         this.headers = this.rows.get(0);
         this.flatMap = new LinkedHashMap<>();
     }

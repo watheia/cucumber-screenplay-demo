@@ -9,3 +9,4 @@ scripts/run_tests.sh
 .docker/Dockerfile6
 *.class
 build/
+/bin/

@@ -1,4 +1,5 @@
 # language: en
+@hello
 Feature: Hello, StepMatcher!
 
 Scenario:

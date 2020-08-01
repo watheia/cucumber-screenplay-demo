@@ -20,6 +20,7 @@ apply plugin: "idea"
 apply plugin: 'net.serenity-bdd.aggregator' 
 
 ext {
+	groovyVersion = "3.0.5"
     serenityVersion = "2.2.12"
     serenityCucumberVersion = "2.2.5"
 }
@@ -29,7 +30,7 @@ repositories {
     jcenter()
 }
 dependencies {
-	implementation localGroovy(),
+	implementation "org.codehaus.groovy:groovy:${groovyVersion}",
 		"net.serenity-bdd:serenity-core:${serenityVersion}",
         "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
         "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",

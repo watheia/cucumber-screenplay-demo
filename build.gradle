@@ -1,13 +1,14 @@
 group = 'io.agileware.natural'
 version = '1.0.0-SNAPSHOT'
 
+
 buildscript {
     repositories {
         mavenLocal()
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.9")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.12")     
     }
 }
 
@@ -18,7 +19,7 @@ apply plugin: "idea"
 apply plugin: 'net.serenity-bdd.aggregator' 
 
 ext {
-    serenityVersion = "2.2.9"
+    serenityVersion = "2.2.12"
     serenityCucumberVersion = "2.2.5"
 }
 

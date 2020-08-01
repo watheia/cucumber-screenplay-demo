@@ -4,6 +4,6 @@ import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(features="src/test/resources/features", plugin = {"pretty"}, tags ={"@smoke-s"})
+@CucumberOptions(features = "src/test/resources/features", plugin = { "pretty" })
 public class CucumberSerenityBDDSimpleRunner {
 }

@@ -1,7 +1,8 @@
+# language: en
 Feature: User can access their order history
-  To check the status of existing orders
-  as an online customer
-  user should be able to access their order history
+	To check the status of existing orders
+	as an online customer
+	user should be able to access their order history
 
 Background: User has an order history in his account
 	Given that Byron is a registered member

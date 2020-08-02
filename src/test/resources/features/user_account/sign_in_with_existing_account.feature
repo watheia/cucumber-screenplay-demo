@@ -1,3 +1,4 @@
+# language: en
 @cucumber
 @smoke
 Feature: Sign in with an existing account

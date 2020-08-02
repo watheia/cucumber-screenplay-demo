@@ -1,3 +1,4 @@
+# language: en
 @cucumber
 @smoke
 Feature: Search for an item

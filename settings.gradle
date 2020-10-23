@@ -10,4 +10,4 @@ pluginManagement {
 	}
 }
 
-rootProject.name = 'serenity-cucumber-bdd-screenplay'
+rootProject.name = 'cucumber-screenplay-demo'

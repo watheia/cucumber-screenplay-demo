@@ -7,9 +7,9 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class GlobalHeader extends PageObject {
 
-    @FindBy(css=".btn.btn-default.button-search")
-    public static WebElementFacade SEARCH_BTN;
+	@FindBy(css = ".btn.btn-default.button-search")
+	public static WebElementFacade SEARCH_BTN;
 
-    public static Target SEARCH_BAR = Target.the("Search bar field")
-            .locatedBy("#search_widget > form > input.ui-autocomplete-input");
+	public static Target SEARCH_BAR = Target.the("Search bar field")
+			.locatedBy("#search_widget > form > input.ui-autocomplete-input");
 }

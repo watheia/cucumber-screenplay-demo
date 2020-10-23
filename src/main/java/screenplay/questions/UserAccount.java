@@ -7,13 +7,13 @@ import screenplay.model.UserAccountInformation;
 
 public class UserAccount implements Question<UserAccountInformation> {
 
-    @Override
-    public UserAccountInformation answeredBy(Actor actor) {
-        String title = BrowseTheWeb.as(actor).getTitle();
-        return new UserAccountInformation(title);
-    }
+	@Override
+	public UserAccountInformation answeredBy(Actor actor) {
+		String title = BrowseTheWeb.as(actor).getTitle();
+		return new UserAccountInformation(title);
+	}
 
-    public static UserAccount loaded(){
-        return new UserAccount();
-    }
+	public static UserAccount loaded() {
+		return new UserAccount();
+	}
 }

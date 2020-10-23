@@ -7,11 +7,11 @@ import screenplay.user_interfaces.ShoppingCartSummary;
 
 public class CartSummary {
 
-    public static TargetTextValues itemAttributes(){
-        return TheTarget.textValuesOf(ShoppingCartSummary.ITEM_ATTRIBUTES).withNoSurroundingWhiteSpace();
-    }
+	public static TargetTextValues itemAttributes() {
+		return TheTarget.textValuesOf(ShoppingCartSummary.ITEM_ATTRIBUTES).withNoSurroundingWhiteSpace();
+	}
 
-   public static TargetText itemName(){
-        return TheTarget.textOf(ShoppingCartSummary.ITEM_NAME);
-   }
+	public static TargetText itemName() {
+		return TheTarget.textOf(ShoppingCartSummary.ITEM_NAME);
+	}
 }

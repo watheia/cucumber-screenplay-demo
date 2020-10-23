@@ -9,8 +9,8 @@ import org.openqa.selenium.WebElement;
 @At("http://automationpractice.com/index.php?controller=my-account")
 public class UserAccountPage extends PageObject {
 
-    public static Target GOTO_ORDER_HISTORY = Target.the("Go To Order History").locatedBy(".icon-list-ol");
+	public static Target GOTO_ORDER_HISTORY = Target.the("Go To Order History").locatedBy(".icon-list-ol");
 
-    @FindBy(id="button_order_cart")
-    public static WebElement GOTO_HOME_FROM_BOTTOM_NAV ;
+	@FindBy(id = "button_order_cart")
+	public static WebElement GOTO_HOME_FROM_BOTTOM_NAV;
 }

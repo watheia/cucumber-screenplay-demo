@@ -1,55 +1,72 @@
-group = 'io.agileware.natural'
-version = '1.0.0-SNAPSHOT'
 
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-    }
-    dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.2.12")     
-    }
-}
-
-apply plugin: 'java'
-apply plugin: 'groovy'
-apply plugin: 'maven'
-apply plugin: "eclipse"
-apply plugin: "idea"
-apply plugin: 'net.serenity-bdd.aggregator' 
-
-ext {
-	groovyVersion = "3.0.5"
-    serenityVersion = "2.2.12"
-    serenityCucumberVersion = "2.2.5"
+plugins {
+	id 'java'
+	id 'groovy'
+	id 'com.diffplug.spotless' version '5.7.0'
 }
 
 repositories {
-    mavenLocal()
-    jcenter()
+	mavenLocal()
+	jcenter()
 }
+
 dependencies {
 	implementation "org.codehaus.groovy:groovy:${groovyVersion}",
-		"net.serenity-bdd:serenity-core:${serenityVersion}",
-        "net.serenity-bdd:serenity-screenplay:${serenityVersion}",
-        "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
-        "net.serenity-bdd:serenity-cucumber5:${serenityCucumberVersion}"
-    
-    testImplementation "net.serenity-bdd:serenity-junit:${serenityVersion}",
-    	"net.serenity-bdd:serenity-ensure:${serenityVersion}",
-    	"junit:junit:4.13",
-    	"org.slf4j:slf4j-api:1.7.30"
+			"net.serenity-bdd:serenity-core:${serenityVersion}",
+			"net.serenity-bdd:serenity-screenplay:${serenityVersion}",
+			"net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}",
+			"net.serenity-bdd:serenity-cucumber5:${serenityCucumberVersion}"
+
+	testImplementation "net.serenity-bdd:serenity-junit:${serenityVersion}",
+			"net.serenity-bdd:serenity-ensure:${serenityVersion}",
+			"junit:junit:${junitVersion}",
+			"org.slf4j:slf4j-api:${slf4jVersion}"
 }
 
-test {
-    testLogging.showStandardStreams = true
-    systemProperties System.getProperties()
-    ignoreFailures = true
-    finalizedBy aggregate
+spotless {
+	groovyGradle {
+		target '*.gradle'
+		greclipse()
+	}
+	java {
+		importOrder() // standard import order
+		// You probably want an empty string at the end - all of the
+		// imports you didn't specify explicitly will go there.
+
+		removeUnusedImports()
+
+		// googleJavaFormat() // has its own section below
+		eclipse()          // has its own section below
+		// prettier()         // has its own section below
+		// clangFormat()      // has its own section below
+
+		// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
+	}
+	groovy {
+		importOrder() // standard import order
+
+		excludeJava() // excludes all Java sources within the Groovy source dirs from formatting
+		// the Groovy Eclipse formatter extends the Java Eclipse formatter,
+		// so it formats Java files by default (unless `excludeJava` is used).
+		greclipse() // has its own section below
+
+		// licenseHeader '/* Copyright (C) $YEAR Watheia Labs, LLC */' // or licenseHeaderFile
+	}
 }
 
-serenity {
-	outputDirectory = file('build/reports/serenity')
-}
+// test {
+//     testLogging.showStandardStreams = true
+//     systemProperties System.getProperties()
+//     ignoreFailures = true
+//     finalizedBy aggregate
+// }
 
+// serenity {
+// 	outputDirectory = file('build/reports/serenity')
+// }
+
+apply plugin: 'net.serenitybdd.plugins.gradle'
+
+build {
+	dependsOn 'spotlessApply'
+}

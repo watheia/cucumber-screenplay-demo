@@ -4,7 +4,7 @@ pluginManagement {
 		mavenCentral()
 		maven { 
             url "https://plugins.gradle.org/m2/" 
-            url "https://cdn.watheia.dev/m2"
+            url "https://cdn.watheia.dev/m2/"
         }
 	}
 	plugins {

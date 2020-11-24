@@ -8,5 +8,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.3.6'
+    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.3.8'
 }

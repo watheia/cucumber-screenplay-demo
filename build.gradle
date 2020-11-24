@@ -2,7 +2,7 @@
 plugins {
 	id 'java'
 	id 'groovy'
-	id 'com.diffplug.spotless' version '5.7.0'
+    id 'net.serenitybdd.plugins.gradle'
 }
 
 repositories {
@@ -23,50 +23,14 @@ dependencies {
 			"org.slf4j:slf4j-api:${slf4jVersion}"
 }
 
-spotless {
-	groovyGradle {
-		target '*.gradle'
-		greclipse()
-	}
-	java {
-		importOrder() // standard import order
-		// You probably want an empty string at the end - all of the
-		// imports you didn't specify explicitly will go there.
-
-		removeUnusedImports()
-
-		// googleJavaFormat() // has its own section below
-		eclipse()          // has its own section below
-		// prettier()         // has its own section below
-		// clangFormat()      // has its own section below
-
-		// licenseHeader '/* (C) $YEAR */' // or licenseHeaderFile
-	}
-	groovy {
-		importOrder() // standard import order
-
-		excludeJava() // excludes all Java sources within the Groovy source dirs from formatting
-		// the Groovy Eclipse formatter extends the Java Eclipse formatter,
-		// so it formats Java files by default (unless `excludeJava` is used).
-		greclipse() // has its own section below
-
-		// licenseHeader '/* Copyright (C) $YEAR Watheia Labs, LLC */' // or licenseHeaderFile
-	}
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+    ignoreFailures = true
+    finalizedBy aggregate
 }
 
-// test {
-//     testLogging.showStandardStreams = true
-//     systemProperties System.getProperties()
-//     ignoreFailures = true
-//     finalizedBy aggregate
-// }
-
-// serenity {
-// 	outputDirectory = file('build/reports/serenity')
-// }
-
-apply plugin: 'net.serenitybdd.plugins.gradle'
-
-build {
-	dependsOn 'spotlessApply'
+serenity {
+	outputDirectory = file('build/reports/serenity')
 }
+
